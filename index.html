@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philip Wong | Digital Marketing Leader</title>
+<meta name="description" content="Philip Wong, Senior Director of Digital Marketing at Momentive Software. Growth, paid media, web, and operations across a 23-brand vertical SaaS portfolio.">
+<style>
+  :root {
+    --bg: #f5f2ea;
+    --bg-card: #ffffff;
+    --bg-soft: #faf8f3;
+    --bg-accent-soft: #eef2f7;
+    --border: #e6e1d4;
+    --border-strong: #d4cebd;
+    --text: #1a2540;
+    --text-dim: #5a6478;
+    --text-mute: #8a92a3;
+    --navy: #1e4d7a;
+    --navy-deep: #173e63;
+    --gold: #a67c00;
+    --gold-soft: #f3ead0;
+    --forest: #2d6a4f;
+    --forest-soft: #e0ede4;
+    --burgundy: #7a3030;
+    --burgundy-soft: #f0e0e0;
+    --teal: #2a6f7a;
+    --teal-soft: #dceef0;
+    --grid-gap: 16px;
+    --radius: 12px;
+    --shadow-soft: 0 1px 2px rgba(26,37,64,0.04);
+  }
+  html.dark {
+    --bg: #0f1419;
+    --bg-card: #1a1f2b;
+    --bg-soft: #161b25;
+    --bg-accent-soft: #1d2738;
+    --border: #2a3142;
+    --border-strong: #3a4258;
+    --text: #e8ecf3;
+    --text-dim: #a8b0c0;
+    --text-mute: #6a7388;
+    --navy: #6ba3da;
+    --navy-deep: #8fbce5;
+    --gold: #e6b94a;
+    --gold-soft: #2a2418;
+    --forest: #6fc090;
+    --forest-soft: #1a2620;
+    --burgundy: #d68888;
+    --burgundy-soft: #2a1a1a;
+    --teal: #6fbecb;
+    --teal-soft: #1a2628;
+    --shadow-soft: 0 1px 2px rgba(0,0,0,0.3);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", "Inter", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .container { max-width: 1240px; margin: 0 auto; padding: 56px 36px 80px; }
+
+  /* HERO */
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-bottom: 36px;
+    margin-bottom: 44px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-left { display: flex; flex-direction: column; gap: 10px; max-width: 720px; }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.6px;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+  .hero-name {
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .hero-title {
+    font-size: 16px;
+    color: var(--text-dim);
+    font-weight: 400;
+    margin-top: 4px;
+  }
+  .hero-title strong { color: var(--text); font-weight: 500; }
+  .hero-tagline {
+    font-size: 15px;
+    color: var(--text);
+    font-weight: 500;
+    margin-top: 8px;
+    letter-spacing: -0.005em;
+    line-height: 1.45;
+  }
+  .hero-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 10px;
+  }
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .contact-link svg { color: var(--text-mute); transition: color 0.2s ease; }
+  .contact-link:hover { color: var(--navy); }
+  .contact-link:hover svg { color: var(--navy); }
+
+  .hero-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+  }
+  .hero-right-top {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .theme-toggle {
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    color: var(--text-dim);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .theme-toggle:hover { color: var(--navy); border-color: var(--navy); transform: rotate(15deg); }
+  .theme-toggle .icon-moon { display: none; }
+  html.dark .theme-toggle .icon-sun { display: none; }
+  html.dark .theme-toggle .icon-moon { display: block; }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    color: var(--navy-deep);
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 99px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+  .badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-right: 8px; }
+  .tenure { font-size: 13px; color: var(--text-mute); font-weight: 400; }
+  .build-credit {
+    font-size: 11px;
+    color: var(--text-mute);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+  }
+  .build-credit svg { opacity: 0.7; }
+
+  /* SECTIONS */
+  .section { margin-bottom: 52px; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    color: var(--navy-deep);
+  }
+  .section-sub { font-size: 12px; color: var(--text-mute); font-style: italic; }
+
+  /* KPI GRID */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--grid-gap);
+  }
+  .kpi {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 24px 22px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .kpi:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+  }
+  .kpi-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--text-mute);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .kpi-value {
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 10px;
+    color: var(--navy);
+  }
+  .kpi-value.gold { color: var(--gold); }
+  .kpi-value.forest { color: var(--forest); }
+  .kpi-value.teal { color: var(--teal); }
+  .kpi-sub { font-size: 12px; color: var(--text-dim); line-height: 1.45; }
+
+  /* GROWTH CARDS */
+  .growth-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--grid-gap);
+  }
+  .growth {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 22px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .growth::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--navy);
+  }
+  .growth.forest::before { background: var(--forest); }
+  .growth.gold::before { background: var(--gold); }
+  .growth.teal::before { background: var(--teal); }
+  .growth-headline {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-bottom: 12px;
+  }
+  .growth-value {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    margin-bottom: 4px;
+    line-height: 1.1;
+  }
+  .growth.forest .growth-value { color: var(--forest); }
+  .growth.gold .growth-value { color: var(--gold); }
+  .growth.teal .growth-value { color: var(--teal); }
+  .growth-before {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .growth-before .arrow { color: var(--text-mute); margin: 0 6px; font-weight: 400; }
+  .growth-before .now { color: var(--text); font-weight: 600; }
+  .growth-detail {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.5;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* SIGNATURE WINS */
+  .wins-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
+  }
+  .win {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    border-top: 3px solid var(--navy);
+  }
+  .win.gold { border-top-color: var(--gold); }
+  .win.teal { border-top-color: var(--teal); }
+  .win-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--bg-accent-soft);
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  .win.gold .win-tag { color: var(--gold); background: var(--gold-soft); }
+  .win.teal .win-tag { color: var(--teal); background: var(--teal-soft); }
+  .win-headline {
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .win-detail { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+  /* FEATURED BUILD */
+  .featured {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .featured:hover {
+    transform: translateY(-2px);
+    border-color: var(--navy);
+    box-shadow: 0 6px 20px rgba(30,77,122,0.08);
+  }
+  .featured-snapshot {
+    flex: 0 0 240px;
+    background: linear-gradient(135deg, var(--bg-accent-soft) 0%, var(--bg-soft) 100%);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .snap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .snap-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    letter-spacing: 0.3px;
+  }
+  .snap-date {
+    font-size: 8px;
+    color: var(--text-mute);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+  .snap-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+  .snap-tab {
+    height: 14px;
+    border-radius: 3px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    flex: 1 1 auto;
+    min-width: 24px;
+  }
+  .snap-tab.active { background: var(--navy); border-color: var(--navy); }
+  .snap-tab.gold { background: var(--gold); border-color: var(--gold); opacity: 0.85; }
+  .snap-tab.teal { background: var(--teal); border-color: var(--teal); opacity: 0.85; }
+  .snap-tab.forest { background: var(--forest); border-color: var(--forest); opacity: 0.85; }
+  .snap-section-label {
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--text-mute);
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .snap-lines { display: flex; flex-direction: column; gap: 5px; }
+  .snap-line {
+    height: 6px;
+    background: var(--bg-card);
+    border-radius: 2px;
+    border: 1px solid var(--border);
+  }
+  .snap-line.w90 { width: 90%; }
+  .snap-line.w75 { width: 75%; }
+  .snap-line.w60 { width: 60%; }
+  .snap-line.w50 { width: 50%; }
+
+  .featured-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+  .featured-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 8px;
+    width: fit-content;
+  }
+  .featured-tag .pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--forest);
+    box-shadow: 0 0 0 0 var(--forest);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(45,106,79,0.5); }
+    70% { box-shadow: 0 0 0 6px rgba(45,106,79,0); }
+    100% { box-shadow: 0 0 0 0 rgba(45,106,79,0); }
+  }
+  .featured-headline {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .featured-detail {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+  .featured-cta {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap 0.2s ease;
+  }
+  .featured:hover .featured-cta { gap: 8px; }
+
+  /* COMPETENCIES */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--grid-gap);
+  }
+  .comp {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .comp:hover { transform: translateY(-2px); border-color: var(--border-strong); }
+  .comp-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .comp-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-accent-soft);
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+  .comp-icon.gold { background: var(--gold-soft); color: var(--gold); }
+  .comp-icon.forest { background: var(--forest-soft); color: var(--forest); }
+  .comp-icon.teal { background: var(--teal-soft); color: var(--teal); }
+  .comp-icon.burgundy { background: var(--burgundy-soft); color: var(--burgundy); }
+  .comp-num {
+    font-size: 10px;
+    color: var(--text-mute);
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    margin-bottom: 2px;
+  }
+  .comp-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.005em;
+  }
+  .comp-body {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .comp-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .chip {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 99px;
+    background: var(--bg-soft);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    font-weight: 500;
+  }
+
+  /* STACK */
+  .stack-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+  }
+  .stack-group {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 24px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+  }
+  .stack-group:last-child { border-bottom: none; }
+  .stack-cat {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--navy-deep);
+    font-weight: 600;
+  }
+  .stack-tools { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tool {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: var(--bg-soft);
+    color: var(--text);
+    border: 1px solid var(--border);
+    font-weight: 500;
+  }
+
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-mute);
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+  .footer-link {
+    color: var(--text-dim);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s ease;
+  }
+  .footer-link svg { color: var(--text-mute); transition: color 0.2s ease; }
+  .footer-link:hover { color: var(--navy); }
+  .footer-link:hover svg { color: var(--navy); }
+
+  /* SCROLL ANIMATIONS */
+  .anim-fade {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .anim-fade.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .anim-fade { opacity: 1; transform: none; transition: none; }
+    body, .featured, .kpi, .comp, .theme-toggle { transition: none; }
+  }
+
+  @media (max-width: 900px) {
+    .container { padding: 32px 20px 60px; }
+    .hero { flex-direction: column; }
+    .hero-right { text-align: left; align-items: flex-start; }
+    .hero-name { font-size: 32px; }
+    .kpi-grid, .growth-grid { grid-template-columns: repeat(2, 1fr); }
+    .comp-grid, .wins-grid { grid-template-columns: 1fr; }
+    .stack-group { grid-template-columns: 1fr; gap: 8px; }
+    .featured { flex-direction: column; }
+    .featured-snapshot { flex: 0 0 auto; width: 100%; height: 140px; }
+  }
+
+  /* PRINT */
+  @media print {
+    :root, html.dark {
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --bg-soft: #f8f8f8;
+      --bg-accent-soft: #f0f4fa;
+      --border: #cccccc;
+      --border-strong: #999999;
+      --text: #000000;
+      --text-dim: #333333;
+      --text-mute: #555555;
+    }
+    body { background: #ffffff; color: #000000; }
+    .container { padding: 16px 20px; max-width: 100%; }
+    .theme-toggle, .hero-right-top { display: none !important; }
+    .hero { padding-bottom: 16px; margin-bottom: 20px; }
+    .section { margin-bottom: 20px; break-inside: avoid; page-break-inside: avoid; }
+    .section-header { margin-bottom: 12px; padding-bottom: 6px; break-after: avoid; }
+    .kpi, .growth, .win, .comp, .stack-card, .featured {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      box-shadow: none;
+      transform: none !important;
+    }
+    .kpi:hover, .comp:hover, .featured:hover { transform: none !important; }
+    .featured-snapshot { background: #f0f4fa; }
+    .anim-fade { opacity: 1 !important; transform: none !important; }
+    a { color: inherit; text-decoration: none; }
+    .contact-link, .footer-link { color: #1e4d7a; }
+    .footer { margin-top: 20px; }
+    .featured-tag .pulse { animation: none; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-left">
+      <div class="eyebrow">Senior Leadership Team</div>
+      <div class="hero-name">Philip Wong</div>
+      <div class="hero-title">Senior Director, Digital Marketing &nbsp;|&nbsp; <strong>Momentive Software</strong> &nbsp;|&nbsp; $300M Vertical SaaS</div>
+      <div class="hero-tagline">I run growth, paid media, web, and operations across a 23-brand SaaS portfolio.</div>
+      <div class="hero-contact">
+        <a href="mailto:ppwong83@gmail.com" class="contact-link" aria-label="Email Philip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          ppwong83@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/ppwong/" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn profile">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43c-1.14 0-2.07-.92-2.07-2.06s.93-2.06 2.07-2.06 2.07.92 2.07 2.06-.93 2.06-2.07 2.06zm1.78 13.02H3.56V9h3.56v11.45z"/></svg>
+          in/ppwong
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-right-top">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" type="button">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+      <span class="badge"><span class="dot"></span>Promoted to SLT in year one</span>
+      <div class="tenure">June 2025 to Present &nbsp;·&nbsp; 23-brand portfolio</div>
+      <div class="build-credit">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.7 5.5L19 9l-4.4 3.2L16 18l-4-3-4 3 1.4-5.8L5 9l5.3-1.5z"/></svg>
+        Crafted with Claude Cowork by Philip Wong
+      </div>
+    </div>
+  </header>
+
+  <!-- HEADLINE KPIs -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-title">Scope and Impact</div>
+      <div class="section-sub">At-a-glance numbers</div>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">Company Revenue</div>
+        <div class="kpi-value gold" data-target="300" data-prefix="$" data-suffix="M">$300M</div>
+        <div class="kpi-sub">Vertical SaaS platform serving nonprofits and associations</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Paid Media Budget</div>
+        <div class="kpi-value" data-target="3.8" data-prefix="$" data-suffix="M" data-decimals="1">$3.8M</div>
+        <div class="kpi-sub">Across Google, LinkedIn, Capterra, Meta, Bing</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Direct Team</div>
+        <div class="kpi-value teal" data-target="13">13</div>
+        <div class="kpi-sub">Director, Associate Director, 2 Team Leads, 3 Senior Managers</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">SaaS Brands Managed</div>
+        <div class="kpi-value forest" data-target="23">23</div>
+        <div class="kpi-sub">Acquired brands consolidated into one platform</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROWTH RESULTS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-title">Growth Results</div>
+      <div class="section-sub">Real numbers from one year of work</div>
+    </div>
+    <div class="growth-grid">
+
+      <div class="growth forest anim-fade">
+        <div class="growth-headline">Organic Sessions</div>
+        <div class="growth-value">~18x</div>
+        <div class="growth-before">781 <span class="arrow">→</span> <span class="now">14,100</span></div>
+        <div class="growth-detail">Monthly organic sessions on the consolidated Momentive Software domain.</div>
+      </div>
+
+      <div class="growth anim-fade">
+        <div class="growth-headline">Avg. Search Position</div>
+        <div class="growth-value">26 spots</div>
+        <div class="growth-before">Pos. 37 <span class="arrow">→</span> <span class="now">Pos. 11</span></div>
+        <div class="growth-detail">July 2025 (Search Console setup) to April 2026. Lower number means higher ranking.</div>
+      </div>
+
+      <div class="growth teal anim-fade">
+        <div class="growth-headline">Organic Keywords Ranked</div>
+        <div class="growth-value">2x</div>
+        <div class="growth-before">Doubled in <span class="now">5 months</span></div>
+        <div class="growth-detail">Across the consolidated brand portfolio through content, on-page, and keyword gap targeting.</div>
+      </div>
+
+      <div class="growth gold anim-fade">
+        <div class="growth-headline">All-Channel Traffic</div>
+        <div class="growth-value">4x</div>
+        <div class="growth-before">Year over <span class="now">year</span></div>
+        <div class="growth-detail">Organic, paid, direct, referral, and AI-source traffic combined across the domain.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SIGNATURE WINS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-title">Signature Wins</div>
+      <div class="section-sub">The marquee accomplishments</div>
+    </div>
+    <div class="wins-grid">
+      <div class="win anim-fade">
+        <div class="win-tag">Recovery</div>
+        <div class="win-headline">Brought a stalled multi-quarter consolidation back to on-time delivery</div>
+        <div class="win-detail">Took over the program mid-cycle, restructured workflows, redefined review SLAs with Product and Brand, and shipped on the original deadline.</div>
+      </div>
+      <div class="win gold anim-fade">
+        <div class="win-tag">Cost Reduction</div>
+        <div class="win-headline">Sunset wasteful agencies and launched the first AI search visibility program</div>
+        <div class="win-detail">Restructured external partnerships in favor of a higher-performing, lower-cost mix of contractors, freelancers, offshore staff, and AI-assisted production. Built the company's first AIO/GEO program on top of it.</div>
+      </div>
+      <div class="win teal anim-fade">
+        <div class="win-tag">Marketing &amp; Sales Operations</div>
+        <div class="win-headline">Redesigned the attribution model with source, channel, parent, and child architecture</div>
+        <div class="win-detail">Paired with a BDR lead-intelligence repository so reps can tailor outreach by campaign, channel, and content source. Cleaner pipeline visibility for Sales and BDR leadership.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED BUILD -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-title">Featured Build</div>
+      <div class="section-sub">A live working artifact</div>
+    </div>
+    <a href="https://ppwong83.github.io/Momentive-Daily-Trends/" target="_blank" rel="noopener" class="featured">
+      <div class="featured-snapshot" aria-hidden="true">
+        <div class="snap-header">
+          <span class="snap-title">Momentive Daily Trends</span>
+          <span class="snap-date">May 15</span>
+        </div>
+        <div class="snap-tabs">
+          <span class="snap-tab active"></span>
+          <span class="snap-tab"></span>
+          <span class="snap-tab gold"></span>
+          <span class="snap-tab"></span>
+          <span class="snap-tab teal"></span>
+          <span class="snap-tab"></span>
+          <span class="snap-tab forest"></span>
+          <span class="snap-tab"></span>
+          <span class="snap-tab"></span>
+          <span class="snap-tab"></span>
+        </div>
+        <div class="snap-section-label">Rising Queries</div>
+        <div class="snap-lines">
+          <div class="snap-line w90"></div>
+          <div class="snap-line w75"></div>
+          <div class="snap-line w60"></div>
+        </div>
+        <div class="snap-section-label">Competitor Watch</div>
+        <div class="snap-lines">
+          <div class="snap-line w75"></div>
+          <div class="snap-line w50"></div>
+        </div>
+      </div>
+      <div class="featured-body">
+        <div class="featured-tag"><span class="pulse"></span>Live · Refreshed daily</div>
+        <div class="featured-headline">Momentive Daily Trends Report</div>
+        <div class="featured-detail">A daily intelligence brief covering rising queries, competitor moves, content angles, and news hooks across all 10 Momentive solution groups. Built end to end in Claude Cowork.</div>
+        <span class="featured-cta">View the live report →</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- COMPETENCIES -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-title">Core Competencies</div>
+      <div class="section-sub">8 leadership pillars</div>
+    </div>
+    <div class="comp-grid">
+
+      <div class="comp">
+        <div class="comp-head">
+          <div class="comp-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
+          </div>
+          <div>
+            <div class="comp-num">01</div>
+            <div class="comp-title">Executive Leadership and People Management</div>
+          </div>
+        </div>
+        <div class="comp-body">Built and lead a 13-person tiered organization spanning strategy, execution, and offshore production. Promoted to the Senior Leadership Team in year one.</div>
+        <div class="comp-chips">
+          <span class="chip">Team design</span>
+          <span class="chip">Coaching</span>
+          <span class="chip">SLT presence</span>
+          <span class="chip">Change management</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-head">
+          <div class="comp-icon forest">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div>
+            <div class="comp-num">02</div>
+            <div class="comp-title">Growth: SEO, AIO, and GEO</div>
+          </div>
+        </div>
+        <div class="comp-body">Doubled the count of ranked organic keywords in 5 months, grew organic sessions from 781 to 14,100, and launched the company's first AI search visibility program.</div>
+        <div class="comp-chips">
+          <span class="chip">SEO strategy</span>
+          <span class="chip">AI search</span>
+          <span class="chip">Content velocity</span>
+          <span class="chip">Technical SEO</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-head">
+          <div class="comp-icon gold">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <div class="comp-num">03</div>
+            <div class="comp-title">Paid Media and Performance</div>
+          </div>
+        </div>
+        <div class="comp-body">Own a $3.8M annual budget across Google, LinkedIn, Capterra, Meta, and Bing. Migrated from legacy product domains into a consolidated, segmented enterprise account under Momentive Software, preventing the domain-mismatch issues that plagued the legacy structure.</div>
+        <div class="comp-chips">
+          <span class="chip">$3.8M budget</span>
+          <span class="chip">ROAS</span>
+          <span class="chip">Account migration</span>
+          <span class="chip">Media planning</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-head">
+          <div class="comp-icon burgundy">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <div class="comp-num">04</div>
+            <div class="comp-title">MarTech and Marketing Operations</div>
+          </div>
+        </div>
+        <div class="comp-body">HubSpot super user. Redesigned attribution with source, channel, parent, and child campaign structure. Built executive dashboards, the BDR lead intelligence repository, and reporting that ties revenue to close month.</div>
+        <div class="comp-chips">
+          <span class="chip">HubSpot</span>
+          <span class="chip">Attribution</span>
+          <span class="chip">Reporting</span>
+          <span class="chip">Lead scoring</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-head">
+          <div class="comp-icon teal">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div>
+            <div class="comp-num">05</div>
+            <div class="comp-title">Web, CRO, and Digital Experience</div>
+          </div>
+        </div>
+        <div class="comp-body">Drove a Consensus demo pilot from 1.15% to 7.9% homepage conversion. Lead an in-house web team plus an AI-coded backend rebuild that removed third-party plugin dependencies from the platform.</div>
+        <div class="comp-chips">
+          <span class="chip">WordPress</span>
+          <span class="chip">CRO</span>
+          <span class="chip">A/B testing</span>
+          <span class="chip">UX</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-head">
+          <div class="comp-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div>
+            <div class="comp-num">06</div>
+            <div class="comp-title">M&amp;A and Brand Consolidation</div>
+          </div>
+        </div>
+        <div class="comp-body">Own the digital arm of consolidating 23 acquired brands into one platform. Authored a reusable post-acquisition integration playbook that is now the standard for future M&amp;A work.</div>
+        <div class="comp-chips">
+          <span class="chip">Integration playbook</span>
+          <span class="chip">Migration sequencing</span>
+          <span class="chip">SEO equity</span>
+          <span class="chip">Brand architecture</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-head">
+          <div class="comp-icon gold">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <div>
+            <div class="comp-num">07</div>
+            <div class="comp-title">Cross-Functional and Vendor Leadership</div>
+          </div>
+        </div>
+        <div class="comp-body">Partner across Marketing Operations, BDR leadership, Sales Operations, Product, Customer Success, Finance, and Legal. Manage a strategic vendor stable across SEO, creative, CRO, AI visibility, and analytics.</div>
+        <div class="comp-chips">
+          <span class="chip">Stakeholder mgmt</span>
+          <span class="chip">Vendor mgmt</span>
+          <span class="chip">GTM partnership</span>
+          <span class="chip">Board reporting</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-head">
+          <div class="comp-icon forest">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <div>
+            <div class="comp-num">08</div>
+            <div class="comp-title">AI Process Engineering and Team Productivity</div>
+          </div>
+        </div>
+        <div class="comp-body">Lead the build of company-wide AI infrastructure in Claude Cowork and Claude Code: scheduled tasks, custom skills, and shared workflows that keep execution consistent across the team while compounding output through AI assistance.</div>
+        <div class="comp-chips">
+          <span class="chip">Claude Cowork</span>
+          <span class="chip">Claude Code</span>
+          <span class="chip">Custom skills</span>
+          <span class="chip">Scheduled tasks</span>
+          <span class="chip">Workflow design</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-title">Tech Stack and Tools</div>
+      <div class="section-sub">Day-to-day fluency</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-group">
+        <div class="stack-cat">MarTech</div>
+        <div class="stack-tools">
+          <span class="tool">HubSpot</span><span class="tool">Salesforce</span><span class="tool">GA4</span><span class="tool">Chili Piper</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-cat">SEO / AIO / GEO</div>
+        <div class="stack-tools">
+          <span class="tool">Profound</span><span class="tool">Peec</span><span class="tool">Conductor</span><span class="tool">SEMrush</span><span class="tool">Ahrefs</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-cat">Paid Media</div>
+        <div class="stack-tools">
+          <span class="tool">Google Ads</span><span class="tool">LinkedIn Ads</span><span class="tool">Meta Ads</span><span class="tool">Capterra</span><span class="tool">Bing Ads</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-cat">Web / CRO</div>
+        <div class="stack-tools">
+          <span class="tool">WordPress</span><span class="tool">HubSpot CMS</span><span class="tool">Unbounce</span><span class="tool">Optimizely</span><span class="tool">Crazy Egg</span><span class="tool">Consensus</span><span class="tool">Figma</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-cat">AI / Automation</div>
+        <div class="stack-tools">
+          <span class="tool">Claude Cowork</span><span class="tool">Claude API</span><span class="tool">ChatGPT</span><span class="tool">Perplexity</span><span class="tool">Profound AI</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-cat">Ops / PM</div>
+        <div class="stack-tools">
+          <span class="tool">Asana</span><span class="tool">Confluence</span><span class="tool">SharePoint</span><span class="tool">Slack</span><span class="tool">Microsoft Teams</span><span class="tool">Monday.com</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Philip Wong &nbsp;·&nbsp;
+    <a href="mailto:ppwong83@gmail.com" class="footer-link">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      ppwong83@gmail.com
+    </a>
+    &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/ppwong/" target="_blank" rel="noopener" class="footer-link">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43c-1.14 0-2.07-.92-2.07-2.06s.93-2.06 2.07-2.06 2.07.92 2.07 2.06-.93 2.06-2.07 2.06zm1.78 13.02H3.56V9h3.56v11.45z"/></svg>
+      in/ppwong
+    </a>
+    &nbsp;·&nbsp; Senior Director, Digital Marketing &nbsp;·&nbsp; Momentive Software
+  </div>
+
+</div>
+
+<script>
+  // KPI counter animation
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1100;
+    const start = performance.now();
+    function step(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const value = (target * eased).toFixed(decimals);
+      el.textContent = prefix + value + suffix;
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Counter observer
+  const seen = new WeakSet();
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !seen.has(entry.target)) {
+        seen.add(entry.target);
+        if (entry.target.classList.contains('kpi-value')) animateCounter(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.kpi-value').forEach(el => obs.observe(el));
+
+  // Scroll fade-in animations
+  const animObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        animObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.anim-fade').forEach(el => animObs.observe(el));
+
+  // Dark mode toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+  try {
+    const saved = localStorage.getItem('pw-theme');
+    if (saved === 'dark') root.classList.add('dark');
+    else if (saved === 'light') root.classList.remove('dark');
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) root.classList.add('dark');
+  } catch (e) { /* ignore */ }
+  themeToggle.addEventListener('click', () => {
+    root.classList.toggle('dark');
+    try {
+      localStorage.setItem('pw-theme', root.classList.contains('dark') ? 'dark' : 'light');
+    } catch (e) { /* ignore */ }
+  });
+</script>
+
+</body>
+</html>

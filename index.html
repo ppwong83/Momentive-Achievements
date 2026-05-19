@@ -134,8 +134,40 @@
   }
   .hero-right-top {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 4px;
+    align-items: center;
+  }
+  .theme-nudge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold-soft);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 5px 12px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    transition: gap 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    font-family: inherit;
+  }
+  .theme-nudge:hover {
+    gap: 9px;
+    transform: translateY(-1px);
+  }
+  .theme-nudge .nudge-arrow { font-size: 13px; line-height: 1; transition: transform 0.2s ease; }
+  .theme-nudge:hover .nudge-arrow { transform: translateX(2px); }
+  .theme-nudge .label-light { display: inline; }
+  .theme-nudge .label-dark { display: none; }
+  html.dark .theme-nudge .label-light { display: none; }
+  html.dark .theme-nudge .label-dark { display: inline; }
+  html.dark .theme-nudge {
+    background: var(--gold-soft);
+    color: var(--gold);
+    border-color: var(--gold);
   }
   .theme-toggle {
     background: var(--bg-card);
@@ -676,7 +708,7 @@
       <div class="eyebrow">Senior Leadership Team</div>
       <div class="hero-name">Philip Wong</div>
       <div class="hero-title">Senior Director, Digital Marketing &nbsp;|&nbsp; <strong>Momentive Software</strong> &nbsp;|&nbsp; $300M Vertical SaaS</div>
-      <div class="hero-tagline">I run growth, paid media, web, and operations across a 23-brand SaaS portfolio.</div>
+      <div class="hero-tagline">I took over digital marketing at the start of a 23-brand consolidation. One year in: organic up 18x, paid moved into a clean enterprise account, and a 13-person team built for the next phase.</div>
       <div class="hero-contact">
         <a href="mailto:ppwong83@gmail.com" class="contact-link" aria-label="Email Philip">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -690,7 +722,12 @@
     </div>
     <div class="hero-right">
       <div class="hero-right-top">
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" type="button">
+        <button id="theme-nudge" class="theme-nudge" type="button" aria-label="Toggle theme">
+          <span class="label-light">Try dark mode</span>
+          <span class="label-dark">Revert to light mode</span>
+          <span class="nudge-arrow" aria-hidden="true">→</span>
+        </button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
           <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
           <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
@@ -1113,6 +1150,7 @@
 
   // Dark mode toggle
   const themeToggle = document.getElementById('theme-toggle');
+  const themeNudge = document.getElementById('theme-nudge');
   const root = document.documentElement;
   try {
     const saved = localStorage.getItem('pw-theme');
@@ -1120,12 +1158,14 @@
     else if (saved === 'light') root.classList.remove('dark');
     else if (window.matchMedia('(prefers-color-scheme: dark)').matches) root.classList.add('dark');
   } catch (e) { /* ignore */ }
-  themeToggle.addEventListener('click', () => {
+  function toggleTheme() {
     root.classList.toggle('dark');
     try {
       localStorage.setItem('pw-theme', root.classList.contains('dark') ? 'dark' : 'light');
     } catch (e) { /* ignore */ }
-  });
+  }
+  themeToggle.addEventListener('click', toggleTheme);
+  themeNudge.addEventListener('click', toggleTheme);
 </script>
 
 </body>

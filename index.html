@@ -528,6 +528,69 @@
     transition: gap 0.2s ease;
   }
   .featured:hover .featured-cta { gap: 8px; }
+  .featured-arrow {
+    display: inline-block;
+    animation: featured-arrow-bounce 1.6s ease-in-out infinite;
+  }
+  @keyframes featured-arrow-bounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(6px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .featured-arrow { animation: none; }
+  }
+
+  /* INLINE KEYWORD DONUT + HOVER PREVIEW */
+  .kw-donut-wrap {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin-left: 14px;
+    vertical-align: middle;
+    position: relative;
+    cursor: zoom-in;
+    transition: transform 0.25s ease;
+  }
+  .kw-donut-wrap:hover { transform: scale(1.12); }
+  .kw-donut { display: block; width: 100%; height: 100%; }
+  .kw-donut .seg-other { stroke: var(--border-strong); }
+  .kw-preview {
+    position: fixed;
+    display: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    padding: 10px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+    z-index: 1000;
+    width: 480px;
+    max-width: calc(100vw - 32px);
+    pointer-events: none;
+    opacity: 0;
+  }
+  .kw-preview.active {
+    display: block;
+    animation: kw-preview-fade 0.22s ease forwards;
+  }
+  @keyframes kw-preview-fade { to { opacity: 1; } }
+  .kw-preview img {
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+  }
+  .kw-preview-caption {
+    font-size: 11px;
+    color: var(--text-mute);
+    margin-top: 8px;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 0.2px;
+  }
+  @media (max-width: 900px) {
+    .kw-preview { display: none !important; }
+    .kw-donut-wrap { cursor: default; }
+    .kw-donut-wrap:hover { transform: none; }
+  }
 
   /* COMPETENCIES */
   .comp-grid {
@@ -795,13 +858,6 @@
     </div>
     <div class="growth-grid">
 
-      <div class="growth forest anim-fade">
-        <div class="growth-headline">Organic Sessions</div>
-        <div class="growth-value" data-target="268" data-suffix="%" data-final="~2.7x">~2.7x</div>
-        <div class="growth-before">8,262 <span class="arrow">→</span> <span class="now">22,158</span></div>
-        <div class="growth-detail">Monthly organic sessions on the consolidated Momentive Software domain, from June 2025 baseline to trailing 4-month average.</div>
-      </div>
-
       <div class="growth anim-fade">
         <div class="growth-headline">Avg. Search Position</div>
         <div class="growth-value">
@@ -813,16 +869,25 @@
 
       <div class="growth teal anim-fade">
         <div class="growth-headline">Organic Keywords Ranked</div>
-        <div class="growth-value" data-target="2" data-suffix="x">2x</div>
-        <div class="growth-before">Doubled in <span class="now">5 months</span></div>
-        <div class="growth-detail">Across the consolidated brand portfolio through content, on-page, and keyword gap targeting.</div>
+        <div class="growth-value">
+          <span data-target="2040" data-suffix="%" data-final="~20x">~20x</span><span class="kw-donut-wrap" tabindex="0" aria-label="View Conductor source distribution"><svg class="kw-donut" viewBox="0 0 100 100" aria-hidden="true"><circle r="32.5" cx="50" cy="50" fill="none" stroke="#2d6a4f" stroke-width="15" stroke-dasharray="6.13 198.07" stroke-dashoffset="0" transform="rotate(-90 50 50)"/><circle r="32.5" cx="50" cy="50" fill="none" stroke="#5fb088" stroke-width="15" stroke-dasharray="20.42 183.78" stroke-dashoffset="-6.13" transform="rotate(-90 50 50)"/><circle r="32.5" cx="50" cy="50" fill="none" stroke="#d4a04a" stroke-width="15" stroke-dasharray="36.76 167.44" stroke-dashoffset="-26.55" transform="rotate(-90 50 50)"/><circle r="32.5" cx="50" cy="50" fill="none" stroke="#d97640" stroke-width="15" stroke-dasharray="49.01 155.19" stroke-dashoffset="-63.31" transform="rotate(-90 50 50)"/><circle r="32.5" cx="50" cy="50" fill="none" stroke="#c84343" stroke-width="15" stroke-dasharray="75.56 128.64" stroke-dashoffset="-112.32" transform="rotate(-90 50 50)"/><circle class="seg-other" r="32.5" cx="50" cy="50" fill="none" stroke-width="15" stroke-dasharray="16.34 187.86" stroke-dashoffset="-187.88" transform="rotate(-90 50 50)"/></svg><div class="kw-preview" role="tooltip"><img src="./conductor-snapshot.png" alt="Conductor visibility distribution showing 12,292 keyword ranks for momentivesoftware.com"><div class="kw-preview-caption">Source: Conductor, May 2026</div></div></span>
+        </div>
+        <div class="growth-before">603 <span class="arrow">→</span> <span class="now">12,300</span></div>
+        <div class="growth-detail">Top 10 keywords jumped from 40 to 1,500+, now 13% of total ranked. June 2025 to current.</div>
+      </div>
+
+      <div class="growth forest anim-fade">
+        <div class="growth-headline">Organic Sessions</div>
+        <div class="growth-value" data-target="268" data-suffix="%" data-final="~2.7x">~2.7x</div>
+        <div class="growth-before">8,262 <span class="arrow">→</span> <span class="now">22,158</span></div>
+        <div class="growth-detail">Monthly organic sessions on the consolidated Momentive Software domain, from June 2025 baseline to trailing 4-month average.</div>
       </div>
 
       <div class="growth gold anim-fade">
         <div class="growth-headline">All-Channel Traffic</div>
-        <div class="growth-value" data-target="4" data-suffix="x">4x</div>
-        <div class="growth-before">Year over <span class="now">year</span></div>
-        <div class="growth-detail">Organic, paid, direct, referral, and AI-source traffic combined across the domain.</div>
+        <div class="growth-value" data-target="443" data-suffix="%" data-final="~4.4x">~4.4x</div>
+        <div class="growth-before">33,356 <span class="arrow">→</span> <span class="now">147,622</span></div>
+        <div class="growth-detail">Organic, paid, direct, referral, and AI-source traffic combined. July 2025 to April 2026 on the consolidated domain.</div>
       </div>
 
     </div>
@@ -893,7 +958,7 @@
         <div class="featured-tag"><span class="pulse"></span>Live · Refreshed daily</div>
         <div class="featured-headline">Momentive Daily Trends Report</div>
         <div class="featured-detail">A daily intelligence brief covering rising queries, competitor moves, content angles, and news hooks across all 10 Momentive solution groups. Built end to end in Claude Cowork.</div>
-        <span class="featured-cta">View the live report →</span>
+        <span class="featured-cta"><span>View the live report</span><span class="featured-arrow">→</span></span>
       </div>
     </a>
   </section>
@@ -1222,6 +1287,34 @@
   }
   themeToggle.addEventListener('click', toggleTheme);
   themeNudge.addEventListener('click', toggleTheme);
+
+  // Donut hover preview (positions intelligently next to the donut)
+  const donutWrap = document.querySelector('.kw-donut-wrap');
+  const kwPreview = document.querySelector('.kw-preview');
+  if (donutWrap && kwPreview) {
+    function positionPreview() {
+      const rect = donutWrap.getBoundingClientRect();
+      const previewW = kwPreview.offsetWidth || 480;
+      const previewH = kwPreview.offsetHeight || 320;
+      const margin = 16;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      let left = rect.right + margin;
+      if (left + previewW > vw - margin) left = rect.left - previewW - margin;
+      if (left < margin) left = Math.max(margin, (vw - previewW) / 2);
+      let top = rect.top + rect.height / 2 - previewH / 2;
+      if (top < margin) top = margin;
+      if (top + previewH > vh - margin) top = vh - previewH - margin;
+      kwPreview.style.left = left + 'px';
+      kwPreview.style.top = top + 'px';
+    }
+    const showPreview = () => { kwPreview.classList.add('active'); positionPreview(); };
+    const hidePreview = () => { kwPreview.classList.remove('active'); };
+    donutWrap.addEventListener('mouseenter', showPreview);
+    donutWrap.addEventListener('mouseleave', hidePreview);
+    donutWrap.addEventListener('focus', showPreview);
+    donutWrap.addEventListener('blur', hidePreview);
+  }
 </script>
 
 </body>

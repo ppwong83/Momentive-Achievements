@@ -311,10 +311,26 @@
     color: var(--navy);
     margin-bottom: 4px;
     line-height: 1.1;
+    transition: opacity 0.3s ease;
   }
   .growth.forest .growth-value { color: var(--forest); }
   .growth.gold .growth-value { color: var(--gold); }
   .growth.teal .growth-value { color: var(--teal); }
+  .growth-value-suffix {
+    display: inline;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-dim);
+    letter-spacing: 0;
+    text-transform: none;
+    margin-left: 8px;
+    vertical-align: 4px;
+  }
+  .growth-value [data-target] {
+    font-variant-numeric: tabular-nums;
+    display: inline-block;
+    min-width: 0.8em;
+  }
   .growth-before {
     font-size: 13px;
     color: var(--text-dim);
@@ -708,7 +724,7 @@
       <div class="eyebrow">Senior Leadership Team</div>
       <div class="hero-name">Philip Wong</div>
       <div class="hero-title">Senior Director, Digital Marketing &nbsp;|&nbsp; <strong>Momentive Software</strong> &nbsp;|&nbsp; $300M Vertical SaaS</div>
-      <div class="hero-tagline">I took over digital marketing at the start of a 23-brand consolidation. One year in: organic up 18x, paid moved into a clean enterprise account, and a 13-person team built for the next phase.</div>
+      <div class="hero-tagline">I was brought in four months into Momentive's 18-product, 19-website consolidation to lead a behind-schedule program. I built a 7-workstream process to migrate traffic, conversions, and brand equity onto the Momentive Software site. Mid-cycle, the portfolio expanded with the acquisitions of VolunteerMatters and Personify, which added WildApricot, MemberClicks, and A2Z Events. One year in: organic sessions up 2.7x, paid moved into a consolidated enterprise account, and a 13-person team built for the next phase.</div>
       <div class="hero-contact">
         <a href="mailto:ppwong83@gmail.com" class="contact-link" aria-label="Email Philip">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -781,28 +797,30 @@
 
       <div class="growth forest anim-fade">
         <div class="growth-headline">Organic Sessions</div>
-        <div class="growth-value">~18x</div>
-        <div class="growth-before">781 <span class="arrow">→</span> <span class="now">14,100</span></div>
-        <div class="growth-detail">Monthly organic sessions on the consolidated Momentive Software domain.</div>
+        <div class="growth-value" data-target="268" data-suffix="%" data-final="~2.7x">~2.7x</div>
+        <div class="growth-before">8,262 <span class="arrow">→</span> <span class="now">22,158</span></div>
+        <div class="growth-detail">Monthly organic sessions on the consolidated Momentive Software domain, from June 2025 baseline to trailing 4-month average.</div>
       </div>
 
       <div class="growth anim-fade">
         <div class="growth-headline">Avg. Search Position</div>
-        <div class="growth-value">26 spots</div>
+        <div class="growth-value">
+          <span data-target="26" data-color-shift="red-to-green" data-delay="750">26</span><span class="growth-value-suffix">position improvement</span>
+        </div>
         <div class="growth-before">Pos. 37 <span class="arrow">→</span> <span class="now">Pos. 11</span></div>
         <div class="growth-detail">July 2025 (Search Console setup) to April 2026. Lower number means higher ranking.</div>
       </div>
 
       <div class="growth teal anim-fade">
         <div class="growth-headline">Organic Keywords Ranked</div>
-        <div class="growth-value">2x</div>
+        <div class="growth-value" data-target="2" data-suffix="x">2x</div>
         <div class="growth-before">Doubled in <span class="now">5 months</span></div>
         <div class="growth-detail">Across the consolidated brand portfolio through content, on-page, and keyword gap targeting.</div>
       </div>
 
       <div class="growth gold anim-fade">
         <div class="growth-headline">All-Channel Traffic</div>
-        <div class="growth-value">4x</div>
+        <div class="growth-value" data-target="4" data-suffix="x">4x</div>
         <div class="growth-before">Year over <span class="now">year</span></div>
         <div class="growth-detail">Organic, paid, direct, referral, and AI-source traffic combined across the domain.</div>
       </div>
@@ -1107,35 +1125,73 @@
 </div>
 
 <script>
-  // KPI counter animation
+  // Respect reduced motion
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Counter animation (KPI + Growth values), with optional color shift
+  const COLOR_RAMPS = {
+    'red-to-green': { from: [220, 60, 60], to: [45, 140, 90] }
+  };
   function animateCounter(el) {
     const target = parseFloat(el.dataset.target);
     const decimals = parseInt(el.dataset.decimals || '0', 10);
     const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
-    const duration = 1100;
-    const start = performance.now();
-    function step(now) {
-      const t = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - t, 3);
-      const value = (target * eased).toFixed(decimals);
-      el.textContent = prefix + value + suffix;
-      if (t < 1) requestAnimationFrame(step);
+    const finalText = el.dataset.final;
+    const ramp = COLOR_RAMPS[el.dataset.colorShift];
+    const delay = parseInt(el.dataset.delay || '0', 10);
+    const duration = ramp ? 2000 : 1100;
+    if (reducedMotion) {
+      el.textContent = finalText || (prefix + target.toFixed(decimals) + suffix);
+      if (ramp) el.style.color = 'rgb(' + ramp.to.join(',') + ')';
+      return;
     }
-    requestAnimationFrame(step);
+    // Lock the starting state immediately so the "before" is visible during the delay
+    if (delay > 0 || ramp) {
+      el.textContent = prefix + (0).toFixed(decimals) + suffix;
+      if (ramp) el.style.color = 'rgb(' + ramp.from.join(',') + ')';
+    }
+    function runStep() {
+      const start = performance.now();
+      function step(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const value = (target * eased).toFixed(decimals);
+        el.textContent = prefix + value + suffix;
+        if (ramp) {
+          const r = Math.round(ramp.from[0] + (ramp.to[0] - ramp.from[0]) * eased);
+          const g = Math.round(ramp.from[1] + (ramp.to[1] - ramp.from[1]) * eased);
+          const b = Math.round(ramp.from[2] + (ramp.to[2] - ramp.from[2]) * eased);
+          el.style.color = 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+        if (t < 1) requestAnimationFrame(step);
+        else if (finalText) {
+          setTimeout(() => {
+            el.style.opacity = '0';
+            setTimeout(() => {
+              el.textContent = finalText;
+              el.style.opacity = '1';
+            }, 220);
+          }, 180);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+    if (delay > 0) setTimeout(runStep, delay);
+    else runStep();
   }
 
-  // Counter observer
+  // Observer for all animated metrics
   const seen = new WeakSet();
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting && !seen.has(entry.target)) {
         seen.add(entry.target);
-        if (entry.target.classList.contains('kpi-value')) animateCounter(entry.target);
+        if (entry.target.dataset.target) animateCounter(entry.target);
       }
     });
   }, { threshold: 0.3 });
-  document.querySelectorAll('.kpi-value').forEach(el => obs.observe(el));
+  document.querySelectorAll('[data-target]').forEach(el => obs.observe(el));
 
   // Scroll fade-in animations
   const animObs = new IntersectionObserver((entries) => {
